@@ -26,7 +26,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "dotenv -e .env.prd react-scripts build",
+    "deploy": "aws s3 sync ./build s3://arai-react-sample --acl public-read",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "lt --port 3000"
@@ -48,5 +49,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "dotenv-cli": "^4.0.0"
   }
 }
